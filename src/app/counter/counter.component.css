@@ -1,0 +1,13 @@
+.big {
+  font-size: 20vw;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.eye {
+  position: fixed;
+  bottom: 0px;
+  left: 100px;
+  width: 50px;
+  cursor: pointer;
+}

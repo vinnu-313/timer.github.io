@@ -1,0 +1,69 @@
+<form #result="ngForm" class="mt-4 pb-5">
+  <div class="form-group">
+    <label for="bib">Bib No.</label>
+    <div class="input-group">
+      <input type="number" [(ngModel)]="bib" name="bib" class="form-control" id="bib" placeholder="Enter bib" (blur)="fetch()" required>
+      <div class="input-group-append">
+        <input type="button" value="Fetch details">
+      </div>
+    </div>
+  </div>
+  <table class="table" *ngIf="partic">
+    <tbody>
+      <tr>
+        <td>Name</td>
+        <td>{{partic?.name}}</td>
+      </tr>
+      <tr>
+        <td>Zone</td>
+        <td>{{partic?.zone}}</td>
+      </tr>
+      <tr>
+        <td>Category</td>
+        <td>{{partic?.category}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="partic">
+    <div class="form-group">
+      <label for="round">Round</label>
+      <select [(ngModel)]="entry.round" name="round" id="round" class="form-control" required="required">
+      <option value="Qualification">Qualification</option>
+      <option value="Final">Final</option>
+    </select>
+    </div>
+    <div class="form-group">
+      <label for="boulder">Boulder</label>
+      <select [(ngModel)]="entry.boulder" name="boulder" id="boulder" class="form-control" required="required">
+      <option value="one">One</option>
+      <option value="two">Two</option>
+      <option value="three">Three</option>
+      <option value="four">Four</option>
+    </select>
+    </div>
+    <div class="form-group">
+      <label for="name">Top</label>
+      <select [(ngModel)]="entry.top" name="top" id="top" class="form-control" required="required">
+      <option value="1">Yes</option>
+      <option value="0">No</option>
+    </select>
+    </div>
+    <div class="form-group">
+      <label for="atop">Attempts to top ?</label>
+      <input type="number" [(ngModel)]="entry.atop" min="0" name="atop" class="form-control" id="atop" placeholder="Enter attempts to top" required="required">
+    </div>
+    <div class="form-group">
+      <label for="bonus">Zone</label>
+      <select [(ngModel)]="entry.bonus" name="bonus" id="bonus" class="form-control" required="required">
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="abonus">Attempts to zone ?</label>
+      <input type="number" [(ngModel)]="entry.abonus" min="0" name="abonus" class="form-control" id="abonus" placeholder="Enter attempts to zone" required="required">
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="save(result.valid)" [disabled]="dis">Add</button> &nbsp;&nbsp;&nbsp;
+    <button type="button" class="btn btn-secondary" (click)="clear()">Reset</button>
+  </div>
+</form>

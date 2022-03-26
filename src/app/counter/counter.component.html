@@ -1,0 +1,8 @@
+<h1 class="big">{{min}}:{{sec}}</h1>
+<img src="../../assets/eye.svg" class="eye" (click)="show=!show" />
+<div *ngIf="show">
+  <button (click)="init()">Start</button>
+  <button (click)="stop()">Stop</button>
+  <input type="number" min="0" [(ngModel)]="ptime">
+  <input type="checkbox" [(ngModel)]="loop" /> Loop
+</div>
